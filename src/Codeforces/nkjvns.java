@@ -1,4 +1,4 @@
 package Codeforces;
 
-public class gv {
+public class nkjvns {
 }

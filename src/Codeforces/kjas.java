@@ -1,2 +1,4 @@
-package Codeforces;public class kjas {
+package Codeforces;
+
+public class kjas {
 }
