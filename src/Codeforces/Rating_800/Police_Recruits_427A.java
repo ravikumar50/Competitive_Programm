@@ -1,4 +1,4 @@
-package Codeforces;
+package Codeforces.Rating_800;
 import java.util.*;
 public class Police_Recruits_427A {
     public static void main(String[] args) {

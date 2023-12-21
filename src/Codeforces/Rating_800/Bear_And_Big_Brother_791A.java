@@ -1,4 +1,4 @@
-package Codeforces;
+package Codeforces.Rating_800;
 
 import java.util.*;
 public class Bear_And_Big_Brother_791A {

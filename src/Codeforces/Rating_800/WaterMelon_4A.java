@@ -1,4 +1,4 @@
-package Codeforces;
+package Codeforces.Rating_800;
 
 import java.util.*;
 public class WaterMelon_4A {
