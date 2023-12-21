@@ -1,7 +1,7 @@
 package Codeforces;
 
 import java.util.*;
-public class Way_To_Long {
+public class Way_To_Long_71A {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
