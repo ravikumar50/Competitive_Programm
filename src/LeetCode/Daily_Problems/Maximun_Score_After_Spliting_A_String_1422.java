@@ -1,5 +1,13 @@
 package LeetCode.Daily_Problems;
 
+/*
+Given a string s of zeros and ones, return the maximum score after splitting the string into two
+ non-empty substrings (i.e. left substring and right substring).
+
+The score after splitting a string is the number of zeros in the left substring plus the number
+ of ones in the right substring.
+ */
+
 public class Maximun_Score_After_Spliting_A_String_1422 {
 
     public static int maxScore(String s) {
