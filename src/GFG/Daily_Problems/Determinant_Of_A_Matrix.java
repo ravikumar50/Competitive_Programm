@@ -1,8 +1,6 @@
-package Codeforces;
+package GFG.Daily_Problems;
 
-import java.util.*;
-public class Practice {
-
+public class Determinant_Of_A_Matrix {
     static int helper(int arr[][], int n){
         if(n==1) return arr[0][0];
         if(n==2){
@@ -26,7 +24,7 @@ public class Practice {
         for(int i=0; i<n+1; i++){
             for(int j=0; j<n+1; j++){
                 if(i!=row && j!=col){
-                    subMat[nr][nc] = arr[i][j];
+                    subMat[nr][nc++] = arr[i][j];
 
                     if(nc==n){
                         nr++;
@@ -37,7 +35,14 @@ public class Practice {
         }
         return helper(subMat,n);
     }
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        int arr[][] = {{1, 0, 2, -1},
+                {3, 0, 0, 5},
+                {2, 1, 4, -3},
+                {1, 0, 5, 0}};
+        int ans = helper(arr,arr.length);
+
+        System.out.println(ans);
     }
 }
