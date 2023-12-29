@@ -1,4 +1,4 @@
-package Codeforces.Contest.Codeforces_Round_918_DIV_4;
+package Codeforces.Contest.Codeforces_Round_918;
 
 import java.util.Scanner;
 
