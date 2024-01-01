@@ -1,17 +1,12 @@
 package Codeforces.Contest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.PriorityQueue;
-import java.util.Scanner;
+import java.util.*;
 
 public class Practice {
 
     public static void main(String[] args) {
-        String s1 = "johnny";
-        String s2 = "john";
-
-        System.out.println(s2.compareTo(s1));
+        HashMap<Integer,Integer> hp = new HashMap<>();
+        System.out.println(hp.get(4));
     }
 
 }
