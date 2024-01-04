@@ -1,6 +1,6 @@
 package CodeChef.Contest.Starter_115;
 
-import java.util.*;g
+import java.util.*;
 public class Decorating_Christmas_Tree {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
