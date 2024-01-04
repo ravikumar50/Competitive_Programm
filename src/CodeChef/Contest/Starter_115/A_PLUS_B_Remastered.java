@@ -1,6 +1,6 @@
 package CodeChef.Contest.Starter_115;
 
-import java.util.*;g
+import java.util.*;
 public class A_PLUS_B_Remastered {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
