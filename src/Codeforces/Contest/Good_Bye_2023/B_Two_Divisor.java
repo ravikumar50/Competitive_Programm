@@ -2,7 +2,7 @@ package Codeforces.Contest.Good_Bye_2023;
 
 import java.util.Scanner;
 
-public class Two_Divisor {
+public class B_Two_Divisor {
     static long gcd(long a, long b){
         if(b==0) return a;
         else return gcd(b,a%b);
