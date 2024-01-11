@@ -2,7 +2,7 @@ package CodeChef.Contest.Starter_116;
 import java.util.*;
 import java.lang.*;
 
-public class g
+public class Access_Control
 
 {
     public static void main (String[] args) throws java.lang.Exception
