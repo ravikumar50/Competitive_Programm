@@ -20,7 +20,7 @@ public class Weapon_Choice {
             else{
                 ans2 = k;
                 h = h-(y1*k);
-g                ans2 = ans2+(int)Math.ceil(h/(y2*1.0));
+                ans2 = ans2+(int)Math.ceil(h/(y2*1.0));
             }
 
             System.out.println(Math.min(ans1,ans2));
