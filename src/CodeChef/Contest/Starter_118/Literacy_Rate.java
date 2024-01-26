@@ -1,5 +1,5 @@
 package CodeChef.Contest.Starter_118;
-import java.util.*;g
+import java.util.*;
 public class Literacy_Rate {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
