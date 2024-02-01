@@ -3,7 +3,7 @@ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
-public gclass K_Odd_Sum
+public class K_Odd_Sum
 {
     public static void main (String[] args) throws java.lang.Exception
     {
