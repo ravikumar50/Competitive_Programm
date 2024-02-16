@@ -1,69 +1,60 @@
-
-import java.awt.*;
 import java.util.*;
+
+import java.util.Random;
+
+// Main class to demonstrate Stop-and-Wait protocol
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int q = sc.nextInt();
-
-        int arr1[] = new int[n];
-        ArrayList<Integer> arr = new ArrayList<>();
-        int left[] = new int[n];
-        int right[] = new int[n];
-        for(int i=0; i<m; i++){
-            int a = sc.nextInt();
-            arr1[a-1] = 1;
-            arr.add(a-1);
-        }
-        for(int i=0; i<m; i++){
-            arr1[arr.get(i)] = sc.nextInt();
-        }
-
-        left[0] = arr1[0];
-        left[n-1] = arr1[n-1];
-
-        for(int i=1; i<n-1; i++){
-            if(arr1[i]!=0) left[i] = arr1[i];
-            else left[i]=left[i-1];
-        }
-
-        right[0] = 0;
-        right[n-1] = 0;
-        for(int i=n-2; i>0; i--){
-            if(arr1[i]!=0) right[i] = 0;
-            else right[i] = 1+right[i+1];
-        }
-
-        for(int i=0; i<q; i++){
-            int t = sc.nextInt();
-            if(t==1){
-                int h = sc.nextInt();
-                int v = sc.nextInt();
-                arr1[h - 1] = v;
-                right[h - 1] = 0;
-                int idx = h - 2;
-                while (idx > 0 && arr1[idx] == 0) {
-                    right[idx] = 1 + right[idx + 1];
-                    idx--;
-                }
-                left[h - 1] = v;
-                idx = h;
-                while (idx < n - 1 && arr1[idx] == 0) {
-                    left[idx] = left[idx - 1];
-                    idx++;
-                }
-            }else{
-                long ans = 0;
-                int l = sc.nextInt();
-                int r = sc.nextInt();
-                for(int j=l; j<=r; j++){
-                    if(arr1[j-1]!=0) continue;
-                    ans += (long)((long)left[j-1]*(long)right[j-1]);
-                }
-                System.out.println(ans);
-            }
+    static ArrayList<String> arr = new ArrayList<>();
+    static boolean reciever(String s){
+        int a = (int)(Math.random()*2);
+        if(a==1){
+            arr.add(s);
+            return true;
+        }else{
+            return false;
         }
     }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of data to be sent");
+        int n = sc.nextInt();
+
+        int idx = 0;
+
+        while(idx<n){
+            System.out.println("Enter Frame "+(idx+1));
+            String s = sc.next();
+            System.out.println("Sending Frame "+(idx+1));
+            boolean flag = reciever(s);
+            if(flag==true){
+                System.out.println("Recieved the acknowledgement for Frame "+(idx+1));
+                System.out.println("Frame "+(idx+1)+" sent Successfully");
+                System.out.println();
+                idx++;
+            }else{
+                System.out.println("Did not recieved the acknowledgement of Frame "+(idx+1));
+                System.out.println("Resending the Frame "+(idx+1));
+                System.out.println();
+                flag = reciever(s);
+                while (flag!=true){
+                    System.out.println("Did not recieved the acknowledgement of Frame "+(idx+1));
+                    System.out.println("Resending the Frame "+(idx+1));
+                    System.out.println();
+                    flag = reciever(s);
+                }
+                System.out.println("Recieved the acknowledgement for Frame "+(idx+1));
+                System.out.println("Frame "+(idx+1)+" sent Successfully");
+                idx++;
+            }
+            System.out.println();
+
+        }
+
+        System.out.println("Reciever recieved all the Frames");
+        System.out.println("Recieved Frames are");
+        System.out.println(arr);
+
+
+    }
 }
+
