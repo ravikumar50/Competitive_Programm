@@ -1,4 +1,4 @@
-package CodeChef.Contest;
+package CodeChef.Contest.Starter_121_DIV2;
 import java.util.*;
 import java.lang.*;
 import java.io.*;
