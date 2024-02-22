@@ -1,60 +1,46 @@
+
+import java.util.*;
 public class Main {
 
-    // Helper function to compute the KMP prefix array
-    static int[] computePrefixArray(String pattern) {
-        int n = pattern.length();
-        int[] prefixArray = new int[n];
-        int j = 0;
+    static int l;
 
-        for (int i = 1; i < n; i++) {
-            while (j > 0 && pattern.charAt(i) != pattern.charAt(j)) {
-                j = prefixArray[j - 1];
-            }
-
-            if (pattern.charAt(i) == pattern.charAt(j)) {
-                j++;
-            }
-
-            prefixArray[i] = j;
+    static int helper(int n,int x, int num){
+        if(check(Integer.toBinaryString(n),0,"")==false){
+            return Math.abs(n-num);
         }
+        System.out.println(Integer.toBinaryString(n).length());
+        if(Integer.toBinaryString(n).length()>l) return Integer.MAX_VALUE;
 
-        return prefixArray;
+        int a = helper(n+(int)Math.pow(2,x),x+1,num);
+        int b = helper(n,x+1,num);
+
+        return Math.min(a,b);
     }
 
-    // Helper function to check if str1 is both a prefix and a suffix of str2 using KMP
-    static boolean isPrefixAndSuffix(String str1, String str2) {
-        String concatenated = str1 + "#" + str2; // Concatenate str1 and str2 with a separator #
+    static boolean check(String s, int idx, String curr){
+        if(curr.equals("101")) return true;
+        if(idx>=s.length()) return false;
 
-        int[] prefixArray = computePrefixArray(concatenated);
-        int n1 = str1.length();
-        int n2 = concatenated.length();
-
-        return prefixArray[n2 - 1] == n1;
+        return check(s,idx+1,curr+s.charAt(idx)) || check(s,idx+1,curr);
     }
 
-    // Main function to count the number of index pairs
-    static int countPrefixAndSuffixPairs(String[] words) {
-        int count = 0;
-        int n = words.length;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (isPrefixAndSuffix(words[i], words[j])) {
-                    count++;
-                }
-            }
-        }
-
-        return count;
-    }
-
+    // Helper function to compute the KMP prefix ar
     public static void main(String[] args) {
 
 
-        String[] words = {"a","ca"};
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
 
-        int result = countPrefixAndSuffixPairs(words);
+        while(t>0){
+            int n = sc.nextInt();
+            l = Integer.toBinaryString(n).length();
+            System.out.println(l);
+            System.out.println(helper(n,1,n));
 
-        System.out.println("Number of index pairs: " + result);
+
+            t--;
+        }
+
     }
 }
